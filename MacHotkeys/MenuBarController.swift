@@ -8,8 +8,6 @@ extension Notification.Name {
 final class MenuBarController: NSObject {
     static let shared = MenuBarController()
 
-    private static let statusItemLength: CGFloat = 28
-
     private var statusItem: NSStatusItem?
     private var statusMenu: NSMenu?
     private var window: NSWindow?
@@ -35,22 +33,14 @@ final class MenuBarController: NSObject {
     }
 
     private func setupStatusItem() {
-        let item = NSStatusBar.system.statusItem(withLength: Self.statusItemLength)
+        let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         guard let button = item.button else { return }
-
-        button.image = nil
-        let paragraph = NSMutableParagraphStyle()
-        paragraph.alignment = .center
-
-        let fontSize = 16.0 * 1.05
-        let attributes: [NSAttributedString.Key: Any] = [
-            .font: NSFont.systemFont(ofSize: fontSize, weight: .semibold),
-            .foregroundColor: NSColor.secondaryLabelColor,
-            .paragraphStyle: paragraph,
-            .baselineOffset: 3
-        ]
-        button.attributedTitle = NSAttributedString(string: "⌘", attributes: attributes)
-        button.imagePosition = .noImage
+        button.attributedTitle = NSAttributedString(string: "")
+        button.title = ""
+        button.image = NSImage(systemSymbolName: "command", accessibilityDescription: "Mac Hotkeys")
+        button.image?.isTemplate = true
+        button.imagePosition = .imageOnly
+        button.imageScaling = .scaleProportionallyDown
         button.toolTip = "Mac Hotkeys"
         button.isBordered = false
         button.focusRingType = .none
