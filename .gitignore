@@ -1,0 +1,17 @@
+
+.DS_Store
+
+build/
+
+DerivedData/
+
+*.xcuserdata
+
+*.xcuserstate
+
+*.app
+
+*.dmg
+
+*.pkg
+

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mac Hotkeys — Liquid Glass Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wallpaper"></div>
+  <div class="shell">
+    <aside class="sidebar glass-panel">
+      <div class="traffic"><span></span><span></span><span></span></div>
+      <div class="brand">
+        <div class="brand-icon" data-icon="all-shortcut"></div>
+        <div><strong>Mac Hotkeys</strong><small>Menu Bar prototype</small></div>
+      </div>
+      <button class="quick active" data-category="all"><span data-icon="all-shortcut"></span><b>All Shortcuts</b><em id="totalCount">0</em></button>
+      <nav class="nav" id="categoryNav"></nav>
+      <div class="sidebar-footer">
+        <div class="hint"><span data-icon="systems"></span><p>HTML-прототип для последующего переноса в SwiftUI.</p></div>
+      </div>
+    </aside>
+
+    <main class="main glass-panel">
+      <header class="toolbar">
+        <div>
+          <p class="eyebrow">macOS 26 style reference</p>
+          <h1>Keyboard Shortcuts</h1>
+          <p class="subtitle">Полный справочник горячих клавиш macOS с поиском и категориями.</p>
+        </div>
+        <div class="actions">
+          <label class="search"><span data-icon="search"></span><input id="searchInput" type="search" placeholder="Поиск: screenshot, finder, ⌘ ⇧ 4…"></label>
+          <button class="theme" id="themeToggle" aria-label="Toggle theme"><span data-icon="moon"></span></button>
+        </div>
+      </header>
+
+      <section class="stats">
+        <article><strong id="visibleCount">0</strong><span>показано</span></article>
+        <article><strong id="categoryCount">0</strong><span>категорий</span></article>
+        <article><strong>SVG</strong><span>иконки и keycaps</span></article>
+      </section>
+
+      <section class="key-legend glass-chip">
+        <b>Key legend</b>
+        <span class="keycap" data-key="cmd"></span><span>Command</span>
+        <span class="keycap" data-key="shift"></span><span>Shift</span>
+        <span class="keycap" data-key="option"></span><span>Option</span>
+        <span class="keycap" data-key="control"></span><span>Control</span>
+        <span class="keycap">Fn</span><span>Function</span>
+      </section>
+
+      <section id="cards" class="cards"></section>
+      <section id="empty" class="empty hidden"><span data-icon="search"></span><h2>Ничего не найдено</h2><p>Попробуй другой запрос или категорию.</p></section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
